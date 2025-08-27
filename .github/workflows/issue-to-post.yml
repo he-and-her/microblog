@@ -84,7 +84,6 @@ jobs:
               `title: "${title.replace(/"/g, '\\"')}"`,
               `datetime: ${humanDT}`,
               `id: ${safeId}`,
-              `tags: [${tags}]`,
               '---',
               ''
             ].join('\n');
