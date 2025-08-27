@@ -1,0 +1,33 @@
+name: New Post
+description: Publish
+labels: ["publish"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Title
+      placeholder: My cosmic thought
+    validations:
+      required: true
+
+  - type: input
+    id: datetime
+    attributes:
+      label: Datetime (ISO-8601, local or UTC)
+      description: "Examples: 2025-08-27 22:45:00  |  2025-08-27T20:45:00Z. If blank, we'll use now (UTC)."
+
+  - type: input
+    id: id
+    attributes:
+      label: Optional row id
+      description: "If empty, we'll generate one from title+datetime. Example: hello-from-space-2025-08-27-224500"
+      placeholder: my-custom-id
+
+  - type: textarea
+    id: content
+    attributes:
+      label: Content (Markdown)
+      placeholder: Write your post…
+    validations:
+      required: true
+
