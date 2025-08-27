@@ -78,13 +78,16 @@ jobs:
             // front matter: include title, datetime (as ISO or space format), id
             // We'll store datetime in "YYYY-MM-DD HH:MM:SS" for your Elixir NaiveDateTime parser convenience.
             const humanDT = `${yyyy}-${mm}-${dd} ${HH}:${MM}:${SS}`;
-            const fm =
-`---
-title: "${title.replace(/"/g, '\\"')}"
-datetime: ${humanDT}
-id: ${safeId}
----
-`;
+            // Build front matter without confusing YAML:
+            const fm = [
+              '---',
+              `title: "${title.replace(/"/g, '\\"')}"`,
+              `datetime: ${humanDT}`,
+              `id: ${safeId}`,
+              `tags: [${tags}]`,
+              '---',
+              ''
+            ].join('\n');
 
             const body = `${fm}\n${content.trim()}\n`;
 
