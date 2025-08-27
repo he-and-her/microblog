@@ -10,6 +10,7 @@ jobs:
     permissions:
       contents: write
       issues: write
+      id-token: write
     steps:
       - uses: actions/checkout@v4
 
@@ -127,6 +128,7 @@ jobs:
     permissions:
       contents: write
       issues: write
+      id-token: write
     steps:
       - uses: actions/checkout@v4
         with:
