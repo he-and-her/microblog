@@ -21,11 +21,11 @@ defmodule Mix.Tasks.Site.Build do
           }
           body {color: #FFFFFF; background: #000000; max-width: 80ch; margin: 0 auto; text-align: center; display: flex;justify-content: center; }
           a:hover,a:link,a:visited,a:active { text-decoration: none; color: #FFFFFF; }
-          table { min-width: 388px; max-width: 388px; border-collapse: separate; border-spacing: 0; }
-          thead { min-width: 388px; max-width: 388px; }
-          tbody { min-width: 388px; max-width: 388px; }
-          thead tr { min-width: 388px; max-width: 388px; }
-          tbody tr { min-width: 388px; max-width: 388px; }
+          table { min-width: 375px; max-width: 375px; border-collapse: separate; border-spacing: 0; }
+          thead { min-width: 375px; max-width: 375px; }
+          tbody { min-width: 375px; max-width: 375px; }
+          thead tr { min-width: 375px; max-width: 375px; }
+          tbody tr { min-width: 375px; max-width: 375px; }
           thead th { text-align: left; }
           tbody td { text-align: left; vertical-align: top; }
 
@@ -39,10 +39,10 @@ defmodule Mix.Tasks.Site.Build do
 
           .details-row[hidden] { display: none; }
           .details {
-            min-width: 388px; max-width: 388px;
+            min-width: 375px; max-width: 375px;
           }
           .nowrap { white-space: nowrap; }
-          img { max-width: 388px;}
+          img { max-width: 375px;}
         </style>
       </head>
       <body>

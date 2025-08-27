@@ -125,12 +125,15 @@ jobs:
   build-deploy:
     needs: publish
     runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-      contents: read
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Pull latest commit (includes the post)
+        run: |
+          git fetch origin ${{ github.ref }}
+          git checkout ${{ github.ref_name }}
+          git pull --ff-only
       - uses: erlef/setup-beam@v1
         with:
           elixir-version: '1.17'
