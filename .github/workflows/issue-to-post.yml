@@ -125,6 +125,10 @@ jobs:
   build-deploy:
     needs: publish
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+      contents: read
     steps:
       - uses: actions/checkout@v4
       - uses: erlef/setup-beam@v1
