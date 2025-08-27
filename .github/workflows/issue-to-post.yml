@@ -68,7 +68,7 @@ jobs:
             const SS = z2(d.getUTCSeconds());
 
             const titleSlug = slugify(title) || 'post';
-            const filePrefix = `${yyyy}-${mm}-${dd}-${HH}${MM}${SS}`;
+            const filePrefix = `${yyyy}-${mm}-${dd}`;
             const fname = `posts/${filePrefix}-${titleSlug}.md`;
 
             // row id (prefer user-supplied)
