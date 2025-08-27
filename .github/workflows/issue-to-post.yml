@@ -3,14 +3,13 @@ on:
   issues:
     types: [labeled]
 
-permissions:
-  contents: write
-  issues: write
-
 jobs:
   publish:
     if: contains(github.event.issue.labels.*.name, 'publish')
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
     steps:
       - uses: actions/checkout@v4
 
@@ -125,6 +124,9 @@ jobs:
   build-deploy:
     needs: publish
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
     steps:
       - uses: actions/checkout@v4
         with:
