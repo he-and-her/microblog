@@ -1,386 +1,635 @@
 <!doctype html>
-<html>
+  <html>
+    <head>
+      <meta charset="utf-8" />
+      <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="icon" href="/favicon.ico">
+      <title>thelastinuit's microblog</title>
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+          body {
+          font-family: 'IBM Plex Mono', monospace;
+        }
+        body {color: #FFFFFF; background: #000000; max-width: 80ch; margin: 0 auto; text-align: center; display: flex;justify-content: center; }
+        a:hover,a:link,a:visited,a:active { text-decoration: none; color: #FFFFFF; }
+        table { min-width: 375px; max-width: 375px; border-collapse: separate; border-spacing: 0; }
+        thead { min-width: 375px; max-width: 375px; }
+        tbody { min-width: 375px; max-width: 375px; }
+        thead tr { min-width: 375px; max-width: 375px; }
+        tbody tr { min-width: 375px; max-width: 375px; }
+        thead th { text-align: left; }
+        tbody td { text-align: left; vertical-align: top; }
 
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="/favicon.ico">
-  <title>thelastinuit's microblog</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+        .row-toggle, .row-toggle:focus-visible {
+          all: unset;
+          display: block;
+          appearance: none; cursor: pointer;
+        }
+        .row-toggle .chev { display: inline-block; }
+        .row-toggle[aria-expanded="true"] .chev { transform: rotate(90deg); }
 
-    body {
-      font-family: 'IBM Plex Mono', monospace;
-    }
+        .details-row[hidden] { display: none; }
+        .details {
+          min-width: 375px; max-width: 375px;
+        }
+        .nowrap { white-space: nowrap; }
+        img { max-width: 375px;}
+      </style>
+    </head>
+    <body>
+      <div class="sidebar">
+        <div style="display: flex; flex-wrap: wrap;">
+          <div class="content flex-column">
+            <div>
+              <br/>
+              <em>
+                If you must inflict <span style="color: #00FF00;">pain</span>,<br/>
+                perhaps I can <span style="color: #00FF00;">endure</span><br/>
+                so others don't <span style="color: #00FF00;">suffer</span><br/>
+              </em>
+            </div>
+            <div>
+              <br/>
+              <em>
+                <a href="olive-feinberg.asc" alt="public key">
+                  <span style="color: #00FF00;">OxF9E4DEDB07B27B36</span>
+                </a>
+              </em>
+            </div>
+            <br />
+            <span style="color: #00FF00;">.</span>microblog
+            <table role="table">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>
+                      <button class="row-toggle" aria-expanded="false" aria-controls="details-no-response-2025-09-09T09:19:00" id="toggle-no-response-2025-09-09T09:19:00">
+                        <span class="chev">></span>
+                      </button>
+                    </td>
+                    <td class="nowrap">2025-09-09 09:19:00</td>
+                    <td>checklist</td>
+                  </tr>
+                  <tr class="details-row" id="details-no-response-2025-09-09T09:19:00" role="region" aria-labelledby="toggle-no-response-2025-09-09T09:19:00" hidden>
+                    <td colspan="3">
+                      <div class="details">
+                        <h4>
+Practical checklist (pin to your monitor)</h4>
+<ul>
+  <li>
+No IO, Repo, DateTime.utc_now/0, System.*, :rand, send/2 inside core modules.  </li>
+  <li>
+Core returns data &amp; results, never performs effects.  </li>
+  <li>
+Effects live in adapters that implement behaviours.  </li>
+  <li>
+GenServers delegate to a pure reducer.  </li>
+  <li>
+Tests for core are pure &amp; blazing fast (property-based with StreamData).  </li>
+  <li>
+Seeds/clocks/UUIDs passed in.  </li>
+  <li>
+Data is plain structs; APIs are small &amp; orthogonal.  </li>
+  <li>
+Errors are values ({:error, reason}), not raises.  </li>
+</ul>
+<h4>
+Practical checklist (pin to your monitor)</h4>
+<ul>
+  <li>
+No IO, Repo, DateTime.utc_now/0, System.*, :rand, send/2 inside core modules.  </li>
+  <li>
+Core returns data &amp; results, never performs effects.  </li>
+  <li>
+Effects live in adapters that implement behaviours.  </li>
+  <li>
+GenServers delegate to a pure reducer.  </li>
+  <li>
+Tests for core are pure &amp; blazing fast (property-based with StreamData).  </li>
+  <li>
+Seeds/clocks/UUIDs passed in.  </li>
+  <li>
+Data is plain structs; APIs are small &amp; orthogonal.  </li>
+  <li>
+Errors are values ({:error, reason}), not raises.  </li>
+</ul>
+<h4>
+Paradigms &amp; tools that map well</h4>
+<ul>
+  <li>
+Algebraic thinking: Make illegal states unrepresentable (structs + smart constructors).  </li>
+  <li>
+Pipelines &amp; combinators: tiny fns that compose (then/2 helpers for {:ok, _} chains).  </li>
+  <li>
+State machines: encode states &amp; allowed transitions (pure apply/2).  </li>
+  <li>
+Event calculus: “What happened?” not “What is.”  </li>
+  <li>
+Property-based testing: enforce invariants as properties.  </li>
+  <li>
+Data-first design: start from the data model; functions are transformations over it.  </li>
+</ul>
+<h4>
+Where purity stops (and that’s okay)</h4>
+<ul>
+  <li>
+Talking to the outside world: DB, HTTP, filesystem, message buses.  </li>
+  <li>
+Real time: clocks, timers, Process.send_after.  </li>
+  <li>
+Randomness &amp; IDs.  </li>
+  <li>
+Shared in-memory state (ETS, Agent) and processes themselves.  </li>
+</ul>
+<h4>
+Core</h4>
+<ul>
+  <li>
+Does this function always give the same result if I give it the same input?  </li>
+  <li>
+Does this code avoid sneaky stuff like printing, saving to the database, or grabbing the current time/date?  </li>
+  <li>
+Is all the messy “real-world” work (saving, emailing, logging, randomness) pushed to the edges instead of mixed inside?  </li>
+  <li>
+If I swap out one outside service (like clock or database), is it easy?  </li>
+  <li>
+Can I test the main logic without starting the app or a database?  </li>
+</ul>
+<h4>
+State &amp; Processes</h4>
+<ul>
+  <li>
+If this piece holds state (like a GenServer), is the actual decision-making written as a simple “given state + input -&gt; new state + output”?  </li>
+  <li>
+Are those “wrappers” around the state machine small and dumb?  </li>
+  <li>
+Is the state stored as a plain map/struct, not hidden in some global thing?  </li>
+  <li>
+Does time/timers only live at the outer layer, not buried inside?  </li>
+  <li>
+Can I play through a whole series of steps without spinning up actual processes?  </li>
+</ul>
+<h4>
+Data Safety</h4>
+<ul>
+  <li>
+Can the data ever get into an “impossible” or “nonsense” shape?  </li>
+  <li>
+Are all the valid states clearly written down (e.g. status can only be new, paid, or canceled)?  </li>
+  <li>
+Do we check that lists/collections actually hold the right kind of stuff?  </li>
+  <li>
+When behavior depends on type of data, is it obvious and clean?  </li>
+  <li>
+Do we check important rules in one place, not scattered everywhere?  </li>
+</ul>
+<h4>
+Handling Problems</h4>
+<ul>
+  <li>
+Do functions say clearly whether they worked or failed (no surprises)?  </li>
+  <li>
+Are exceptions rare and only used for truly unexpected crashes?  </li>
+  <li>
+Do we chain steps cleanly (not nested if/else jungles)?  </li>
+  <li>
+Are error reasons short and predictable, not random strings?  </li>
+  <li>
+Is logging only happening at the “edges” where we touch the real world?  </li>
+</ul>
+<h4>
+Time, IDs, Randomness</h4>
+<ul>
+  <li>
+When we need “now” or “a new ID,” do we pass it in instead of grabbing it magically?  </li>
+  <li>
+Is randomness controlled so tests always run the same way?  </li>
+  <li>
+Do we get IDs through a helper, not straight from the system inside the core logic?  </li>
+  <li>
+Is time math always based on a value we pass in?  </li>
+  <li>
+Can we replay the same steps and always get the same result?  </li>
+</ul>
+<h4>
+Events &amp; History (if using events)</h4>
+<ul>
+  <li>
+Do we write down what happened (events) rather than jumping straight to side effects?  </li>
+  <li>
+Is state always rebuilt by replaying events?  </li>
+  <li>
+Are side effects (emails, saves) triggered after the events are decided?  </li>
+  <li>
+Are events stored in a clear, stable format?  </li>
+  <li>
+Can we rebuild everything just from the event history?  </li>
+</ul>
+<h4>
+Dealing with Outside Systems</h4>
+<ul>
+  <li>
+For each outside thing (database, HTTP, file), do we have a small, clear adapter that just translates?  </li>
+  <li>
+Is there exactly one “real” adapter per outside thing in production?  </li>
+  <li>
+Do tests swap in fake adapters instead of calling the real thing?  </li>
+  <li>
+Do adapters turn weird system errors into simple, known errors?  </li>
+  <li>
+Are adapters skinny (no business rules in them)?  </li>
+</ul>
+<h4>
+Small Lego Bricks</h4>
+<ul>
+  <li>
+Are most functions small enough to explain in one sentence?  </li>
+  <li>
+Can we snap them together like Lego pieces (pipe/compose)?  </li>
+  <li>
+Do we avoid doing real-world stuff in the middle of a pipeline?  </li>
+  <li>
+Do arguments and names line up in a consistent, predictable way?  </li>
+  <li>
+Could each function be described as a “command” over the data?  </li>
+</ul>
+<h4>
+Testing</h4>
+<ul>
+  <li>
+Can we run core tests in milliseconds without a database?  </li>
+  <li>
+Do tests cover both “normal” cases and weird edge cases?  </li>
+  <li>
+Can we generate lots of random inputs to stress test the rules?  </li>
+  <li>
+Do tests assert both “good” and “bad” behavior?  </li>
+  <li>
+Can we simulate whole sequences of steps and still test them fast?  </li>
+</ul>
+<h4>
+Observability</h4>
+<ul>
+  <li>
+Do we only log/measure things at the edges (not deep inside)?  </li>
+  <li>
+Do we carry IDs through so we can follow one request end-to-end?  </li>
+  <li>
+Can we see what went wrong without reading the code?  </li>
+  <li>
+Do metrics/logs talk in business words (“order failed”) not technical noise?  </li>
+  <li>
+Are logs structured (fields) instead of messy strings?  </li>
+</ul>
 
-    body {
-      color: #FFFFFF;
-      background: #000000;
-      max-width: 80ch;
-      margin: 0 auto;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-    }
+                      </div>
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <button class="row-toggle" aria-expanded="false" aria-controls="details-no-response-2025-08-30T15:45:00" id="toggle-no-response-2025-08-30T15:45:00">
+                        <span class="chev">></span>
+                      </button>
+                    </td>
+                    <td class="nowrap">2025-08-30 15:45:00</td>
+                    <td>bad</td>
+                  </tr>
+                  <tr class="details-row" id="details-no-response-2025-08-30T15:45:00" role="region" aria-labelledby="toggle-no-response-2025-08-30T15:45:00" hidden>
+                    <td colspan="3">
+                      <div class="details">
+                        <p>
+the world indeed needs bad men to keep other bad men at the door.
+namely, it’s wiser to be a warrior who knows how to farm than a farmer who knows nothing about war.</p>
 
-    a:hover,
-    a:link,
-    a:visited,
-    a:active {
-      text-decoration: none;
-      color: #FFFFFF;
-    }
+                      </div>
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <button class="row-toggle" aria-expanded="false" aria-controls="details-no-response-2025-08-30T23:33:00" id="toggle-no-response-2025-08-30T23:33:00">
+                        <span class="chev">></span>
+                      </button>
+                    </td>
+                    <td class="nowrap">2025-08-30 23:33:00</td>
+                    <td>oisa</td>
+                  </tr>
+                  <tr class="details-row" id="details-no-response-2025-08-30T23:33:00" role="region" aria-labelledby="toggle-no-response-2025-08-30T23:33:00" hidden>
+                    <td colspan="3">
+                      <div class="details">
+                        <p>
+i recently encountered orthogonality ISA (instruction set architecture).</p>
+<p>
+more about processor design but certainly applicable at software development.</p>
+<p>
+i’ve been doing dummy adaptations of elixir modules and i’m loving it</p>
+<img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGk2NWRseXIwOWx4OGkyZ2FuZnV4OGxvMGo0NHlyM3FkaHQzbjFibCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Kb4IU8uT1khuUkx8m3/giphy.gif" width="375px">
 
-    table {
-      min-width: 388px;
-      max-width: 388px;
-      border-collapse: separate;
-      border-spacing: 0;
-    }
+                      </div>
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <button class="row-toggle" aria-expanded="false" aria-controls="details-no-response-2025-08-27T11:26:00" id="toggle-no-response-2025-08-27T11:26:00">
+                        <span class="chev">></span>
+                      </button>
+                    </td>
+                    <td class="nowrap">2025-08-27 11:26:00</td>
+                    <td>functional</td>
+                  </tr>
+                  <tr class="details-row" id="details-no-response-2025-08-27T11:26:00" role="region" aria-labelledby="toggle-no-response-2025-08-27T11:26:00" hidden>
+                    <td colspan="3">
+                      <div class="details">
+                        <p>
+doing functional programming feels so right.</p>
+<p>
+i really don’t understand how people keep their distance from it.</p>
+<p>
+it just feels right in my mind.</p>
 
-    thead {
-      min-width: 388px;
-      max-width: 388px;
-    }
+                      </div>
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <button class="row-toggle" aria-expanded="false" aria-controls="details-no-response-2025-08-27T16:46:00" id="toggle-no-response-2025-08-27T16:46:00">
+                        <span class="chev">></span>
+                      </button>
+                    </td>
+                    <td class="nowrap">2025-08-27 16:46:00</td>
+                    <td>oneself</td>
+                  </tr>
+                  <tr class="details-row" id="details-no-response-2025-08-27T16:46:00" role="region" aria-labelledby="toggle-no-response-2025-08-27T16:46:00" hidden>
+                    <td colspan="3">
+                      <div class="details">
+                        <p>
+i have come to the conclusion that we crave someone ’cuz we lack something in the beginning — namely, authenticity and security.</p>
+<p>
+yes, biology also dictates preserving the species, but since we are highly conscious beings, we can overcome that.</p>
+<p>
+the more i heal, the less interest i feel in having - or being part of - a relationship with another human being.</p>
+<p>
+i feel authentic and secure, and the craving is gone.</p>
+<p>
+To oneself, love.</p>
 
-    tbody {
-      min-width: 388px;
-      max-width: 388px;
-    }
+                      </div>
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <button class="row-toggle" aria-expanded="false" aria-controls="details-raw-dogging-2025-08-26T23:21:00" id="toggle-raw-dogging-2025-08-26T23:21:00">
+                        <span class="chev">></span>
+                      </button>
+                    </td>
+                    <td class="nowrap">2025-08-26 23:21:00</td>
+                    <td>raw-dogging</td>
+                  </tr>
+                  <tr class="details-row" id="details-raw-dogging-2025-08-26T23:21:00" role="region" aria-labelledby="toggle-raw-dogging-2025-08-26T23:21:00" hidden>
+                    <td colspan="3">
+                      <div class="details">
+                        <p>
+we went old school. I did CMS quite simple and to my needs.</p>
+<p>
+I’m doing microblogging from my phone and github issues.</p>
+<p>
+how cool is that?</p>
+<p>
+special since issues is the perfect word for each posts <em>jiggles</em></p>
 
-    thead tr {
-      min-width: 388px;
-      max-width: 388px;
-    }
+                      </div>
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <button class="row-toggle" aria-expanded="false" aria-controls="details-no-response-2025-08-26T23:45:00" id="toggle-no-response-2025-08-26T23:45:00">
+                        <span class="chev">></span>
+                      </button>
+                    </td>
+                    <td class="nowrap">2025-08-26 23:45:00</td>
+                    <td>github</td>
+                  </tr>
+                  <tr class="details-row" id="details-no-response-2025-08-26T23:45:00" role="region" aria-labelledby="toggle-no-response-2025-08-26T23:45:00" hidden>
+                    <td colspan="3">
+                      <div class="details">
+                        <p>
+this is a simple test for github actions to publish this as a post.</p>
+<p>
+jesus i lost count of how many commits until it worked.</p>
 
-    tbody tr {
-      min-width: 388px;
-      max-width: 388px;
-    }
+                      </div>
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <button class="row-toggle" aria-expanded="false" aria-controls="details-idiots-2025-08-21T22:34:00" id="toggle-idiots-2025-08-21T22:34:00">
+                        <span class="chev">></span>
+                      </button>
+                    </td>
+                    <td class="nowrap">2025-08-21 22:34:00</td>
+                    <td>idiots</td>
+                  </tr>
+                  <tr class="details-row" id="details-idiots-2025-08-21T22:34:00" role="region" aria-labelledby="toggle-idiots-2025-08-21T22:34:00" hidden>
+                    <td colspan="3">
+                      <div class="details">
+                        <p>
+I find myself studying physics again, reading new TOEs and so on.</p>
+<p>
+Fascinating.</p>
+<p>
+On the other hand, the only bad thing about moving away from modern civilization is the idiots. I’m gonna miss them so much.</p>
+<p>
+But soon after they’re gone, I’ll be reunited with them and have interdimensional adventures across the whole Cosmos.</p>
 
-    thead th {
-      text-align: left;
-    }
+                      </div>
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <button class="row-toggle" aria-expanded="false" aria-controls="details-bitter-2025-08-20T18:10:00" id="toggle-bitter-2025-08-20T18:10:00">
+                        <span class="chev">></span>
+                      </button>
+                    </td>
+                    <td class="nowrap">2025-08-20 18:10:00</td>
+                    <td>bitter</td>
+                  </tr>
+                  <tr class="details-row" id="details-bitter-2025-08-20T18:10:00" role="region" aria-labelledby="toggle-bitter-2025-08-20T18:10:00" hidden>
+                    <td colspan="3">
+                      <div class="details">
+                        <p>
+I find myself not bitter. I should be bitter, mad, or something.</p>
+<p>
+Instead, I’m just fine. I’m bored. I’m quiet.</p>
+<p>
+And yet… I have a lot to say, to express — but silence feels richer.</p>
+<p>
+…</p>
+<p>
+I cut my hair and I’m growing a beard-stache, or at least whatever I can make of it.</p>
+<p>
+I usually go skinhead, but this time I didn’t.</p>
+<p>
+Something’s off… something’s terribly off.</p>
 
-    tbody td {
-      text-align: left;
-      vertical-align: top;
-    }
+                      </div>
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <button class="row-toggle" aria-expanded="false" aria-controls="details-aftermath-2025-08-18T06:25:00" id="toggle-aftermath-2025-08-18T06:25:00">
+                        <span class="chev">></span>
+                      </button>
+                    </td>
+                    <td class="nowrap">2025-08-18 06:25:00</td>
+                    <td>aftermath</td>
+                  </tr>
+                  <tr class="details-row" id="details-aftermath-2025-08-18T06:25:00" role="region" aria-labelledby="toggle-aftermath-2025-08-18T06:25:00" hidden>
+                    <td colspan="3">
+                      <div class="details">
+                        <p>
+In the “coming down from the trees” aftermath, we are standing on the bridge of collapse as a civilization.</p>
+<p>
+This A.I. threat is real—not in the Terminator sense, but in the repercussions it has on us, especially on new generations.</p>
+<p>
+And yet, we are still asking the same question… still trying to construct meaning in a meaningless universe.</p>
+<p>
+So why not just put on some bachatas and dance?</p>
+<p>
+Dance, monkeys, dance!</p>
 
-    .row-toggle,
-    .row-toggle:focus-visible {
-      all: unset;
-      display: block;
-      appearance: none;
-      cursor: pointer;
-    }
+                      </div>
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <button class="row-toggle" aria-expanded="false" aria-controls="details-seen-2025-08-14T20:03:00" id="toggle-seen-2025-08-14T20:03:00">
+                        <span class="chev">></span>
+                      </button>
+                    </td>
+                    <td class="nowrap">2025-08-14 20:03:00</td>
+                    <td>seen</td>
+                  </tr>
+                  <tr class="details-row" id="details-seen-2025-08-14T20:03:00" role="region" aria-labelledby="toggle-seen-2025-08-14T20:03:00" hidden>
+                    <td colspan="3">
+                      <div class="details">
+                        <p>
+why the fuck do I need to be seen?</p>
+<p>
+i crave my privacy, and yet — this.</p>
+<p>
+what a mess of a being, seemingly conscious.</p>
+<p>
+i have my best moments watching the stars — no thoughts, nothing, just beams of light in the night.</p>
+<p>
+i wonder if we crave connection because we’re wired to—namely, because we are social beings.</p>
+<p>
+since we are born, we depend on others…</p>
+<p>
+i want to travel to the stars… are you listening?</p>
+<p>
+come and get me, please.</p>
 
-    .row-toggle .chev {
-      display: inline-block;
-    }
+                      </div>
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <button class="row-toggle" aria-expanded="false" aria-controls="details-a-i-2025-08-13T14:19:00" id="toggle-a-i-2025-08-13T14:19:00">
+                        <span class="chev">></span>
+                      </button>
+                    </td>
+                    <td class="nowrap">2025-08-13 14:19:00</td>
+                    <td>a.i.</td>
+                  </tr>
+                  <tr class="details-row" id="details-a-i-2025-08-13T14:19:00" role="region" aria-labelledby="toggle-a-i-2025-08-13T14:19:00" hidden>
+                    <td colspan="3">
+                      <div class="details">
+                        <p>
+jesus fucking christ!</p>
+<p>
+everywhere I go, there’s fucking a.i.</p>
+<p>
+i’m just waiting for the restroom that eventually will have a.i. for whatever fucking reason.</p>
+<p>
+i have no real take on the matter, so complaining seems off — but I think I’ll end up like john wick.</p>
+<img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXVyZHJ5OTl6NTlhZ2VwM21kejRmaHBuanVsZzZsOGs2dHhzZDQ0OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yoJC2BlMMydcdBvgze/giphy.gif" alt="im back" style="pointer-events: auto;">
 
-    .row-toggle[aria-expanded="true"] .chev {
-      transform: rotate(90deg);
-    }
+                      </div>
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td>
+                      <button class="row-toggle" aria-expanded="false" aria-controls="details-loyalty-2025-08-11T12:23:00" id="toggle-loyalty-2025-08-11T12:23:00">
+                        <span class="chev">></span>
+                      </button>
+                    </td>
+                    <td class="nowrap">2025-08-11 12:23:00</td>
+                    <td>loyalty</td>
+                  </tr>
+                  <tr class="details-row" id="details-loyalty-2025-08-11T12:23:00" role="region" aria-labelledby="toggle-loyalty-2025-08-11T12:23:00" hidden>
+                    <td colspan="3">
+                      <div class="details">
+                        <p>
+value. loyalty. above. all. else.</p>
+<p>
+i’ve had it with people and their lack of values — especially when they’re too cowardly to be accountable, choosing instead to blame others.
+grow the fuck up.</p>
 
-    .details-row[hidden] {
-      display: none;
-    }
-
-    .details {
-      min-width: 388px;
-      max-width: 388px;
-    }
-
-    .nowrap {
-      white-space: nowrap;
-    }
-
-    img {
-      max-width: 388px;
-    }
-  </style>
-</head>
-
-<body>
-  <div class="sidebar">
-    <div style="display: flex; flex-wrap: wrap;">
-      <div class="content flex-column">
-        <div>
-          <br />
-          <em>
-            If you must inflict <span style="color: #00FF00;">pain</span>,<br />
-            perhaps I can <span style="color: #00FF00;">endure</span><br />
-            so others don't <span style="color: #00FF00;">suffer</span><br />
-          </em>
+                      </div>
+                    </td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div>
-          <br />
-          <em>
-            <a href="olive-feinberg.asc" alt="public key">
-              <span style="color: #00FF00;">OxF9E4DEDB07B27B36</span>
-            </a>
-          </em>
-        </div>
-        <br />
-        <span style="color: #00FF00;">.</span>microblog
-        <table role="table">
-          <thead>
-            <tr>
-              <th scope="col"></th>
-              <th scope="col"></th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
+        <script>
+          document.addEventListener('click', function (e) {
+            const btn = e.target.closest('.row-toggle');
+            if (!btn) return;
+            const regionId = btn.getAttribute('aria-controls');
+            const region = document.getElementById(regionId);
+            if (!region) return;
 
-            <tr>
-              <td>
-                <button class="row-toggle" aria-expanded="false" aria-controls="details-raw-dogging-2025-08-26T23:21:00"
-                  id="toggle-raw-dogging-2025-08-26T23:21:00">
-                  <span class="chev">></span>
-                </button>
-              </td>
-              <td class="nowrap">2025-08-26 23:21:00</td>
-              <td>raw-dogging</td>
-            </tr>
-            <tr class="details-row" id="details-raw-dogging-2025-08-26T23:21:00" role="region"
-              aria-labelledby="toggle-raw-dogging-2025-08-26T23:21:00" hidden>
-              <td colspan="3">
-                <div class="details">
-                  <p>
-                    we went old school. I did CMS quite simple and to my needs.</p>
-                  <p>
-                    I’m doing microblogging from my phone and github issues.</p>
-                  <p>
-                    how cool is that?</p>
-                  <p>
-                    special since issues is the perfect word for each posts <em>jiggles</em></p>
-
-                </div>
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <button class="row-toggle" aria-expanded="false" aria-controls="details-idiots-2025-08-21T22:34:00"
-                  id="toggle-idiots-2025-08-21T22:34:00">
-                  <span class="chev">></span>
-                </button>
-              </td>
-              <td class="nowrap">2025-08-21 22:34:00</td>
-              <td>idiots</td>
-            </tr>
-            <tr class="details-row" id="details-idiots-2025-08-21T22:34:00" role="region"
-              aria-labelledby="toggle-idiots-2025-08-21T22:34:00" hidden>
-              <td colspan="3">
-                <div class="details">
-                  <p>
-                    I find myself studying physics again, reading new TOEs and so on.</p>
-                  <p>
-                    Fascinating.</p>
-                  <p>
-                    On the other hand, the only bad thing about moving away from modern civilization is the idiots. I’m
-                    gonna miss them so much.</p>
-                  <p>
-                    But soon after they’re gone, I’ll be reunited with them and have interdimensional adventures across
-                    the whole Cosmos.</p>
-
-                </div>
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <button class="row-toggle" aria-expanded="false" aria-controls="details-bitter-2025-08-20T18:10:00"
-                  id="toggle-bitter-2025-08-20T18:10:00">
-                  <span class="chev">></span>
-                </button>
-              </td>
-              <td class="nowrap">2025-08-20 18:10:00</td>
-              <td>bitter</td>
-            </tr>
-            <tr class="details-row" id="details-bitter-2025-08-20T18:10:00" role="region"
-              aria-labelledby="toggle-bitter-2025-08-20T18:10:00" hidden>
-              <td colspan="3">
-                <div class="details">
-                  <p>
-                    I find myself not bitter. I should be bitter, mad, or something.</p>
-                  <p>
-                    Instead, I’m just fine. I’m bored. I’m quiet.</p>
-                  <p>
-                    And yet… I have a lot to say, to express — but silence feels richer.</p>
-                  <p>
-                    …</p>
-                  <p>
-                    I cut my hair and I’m growing a beard-stache, or at least whatever I can make of it.</p>
-                  <p>
-                    I usually go skinhead, but this time I didn’t.</p>
-                  <p>
-                    Something’s off… something’s terribly off.</p>
-
-                </div>
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <button class="row-toggle" aria-expanded="false" aria-controls="details-aftermath-2025-08-18T06:25:00"
-                  id="toggle-aftermath-2025-08-18T06:25:00">
-                  <span class="chev">></span>
-                </button>
-              </td>
-              <td class="nowrap">2025-08-18 06:25:00</td>
-              <td>aftermath</td>
-            </tr>
-            <tr class="details-row" id="details-aftermath-2025-08-18T06:25:00" role="region"
-              aria-labelledby="toggle-aftermath-2025-08-18T06:25:00" hidden>
-              <td colspan="3">
-                <div class="details">
-                  <p>
-                    In the “coming down from the trees” aftermath, we are standing on the bridge of collapse as a
-                    civilization.</p>
-                  <p>
-                    This A.I. threat is real—not in the Terminator sense, but in the repercussions it has on us,
-                    especially on new generations.</p>
-                  <p>
-                    And yet, we are still asking the same question… still trying to construct meaning in a meaningless
-                    universe.</p>
-                  <p>
-                    So why not just put on some bachatas and dance?</p>
-                  <p>
-                    Dance, monkeys, dance!</p>
-
-                </div>
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <button class="row-toggle" aria-expanded="false" aria-controls="details-seen-2025-08-14T20:03:00"
-                  id="toggle-seen-2025-08-14T20:03:00">
-                  <span class="chev">></span>
-                </button>
-              </td>
-              <td class="nowrap">2025-08-14 20:03:00</td>
-              <td>seen</td>
-            </tr>
-            <tr class="details-row" id="details-seen-2025-08-14T20:03:00" role="region"
-              aria-labelledby="toggle-seen-2025-08-14T20:03:00" hidden>
-              <td colspan="3">
-                <div class="details">
-                  <p>
-                    why the fuck do I need to be seen?</p>
-                  <p>
-                    i crave my privacy, and yet — this.</p>
-                  <p>
-                    what a mess of a being, seemingly conscious.</p>
-                  <p>
-                    i have my best moments watching the stars — no thoughts, nothing, just beams of light in the night.
-                  </p>
-                  <p>
-                    i wonder if we crave connection because we’re wired to—namely, because we are social beings.</p>
-                  <p>
-                    since we are born, we depend on others…</p>
-                  <p>
-                    i want to travel to the stars… are you listening?</p>
-                  <p>
-                    come and get me, please.</p>
-
-                </div>
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <button class="row-toggle" aria-expanded="false" aria-controls="details-a-i-2025-08-13T14:19:00"
-                  id="toggle-a-i-2025-08-13T14:19:00">
-                  <span class="chev">></span>
-                </button>
-              </td>
-              <td class="nowrap">2025-08-13 14:19:00</td>
-              <td>a.i.</td>
-            </tr>
-            <tr class="details-row" id="details-a-i-2025-08-13T14:19:00" role="region"
-              aria-labelledby="toggle-a-i-2025-08-13T14:19:00" hidden>
-              <td colspan="3">
-                <div class="details">
-                  <p>
-                    jesus fucking christ!</p>
-                  <p>
-                    everywhere I go, there’s fucking a.i.</p>
-                  <p>
-                    i’m just waiting for the restroom that eventually will have a.i. for whatever fucking reason.</p>
-                  <p>
-                    i have no real take on the matter, so complaining seems off — but I think I’ll end up like john
-                    wick.</p>
-                  <img
-                    src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXVyZHJ5OTl6NTlhZ2VwM21kejRmaHBuanVsZzZsOGs2dHhzZDQ0OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yoJC2BlMMydcdBvgze/giphy.gif"
-                    alt="im back" style="pointer-events: auto;">
-
-                </div>
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <button class="row-toggle" aria-expanded="false" aria-controls="details-loyalty-2025-08-11T12:23:00"
-                  id="toggle-loyalty-2025-08-11T12:23:00">
-                  <span class="chev">></span>
-                </button>
-              </td>
-              <td class="nowrap">2025-08-11 12:23:00</td>
-              <td>loyalty</td>
-            </tr>
-            <tr class="details-row" id="details-loyalty-2025-08-11T12:23:00" role="region"
-              aria-labelledby="toggle-loyalty-2025-08-11T12:23:00" hidden>
-              <td colspan="3">
-                <div class="details">
-                  <p>
-                    value. loyalty. above. all. else.</p>
-                  <p>
-                    i’ve had it with people and their lack of values — especially when they’re too cowardly to be
-                    accountable, choosing instead to blame others.
-                    grow the fuck up.</p>
-
-                </div>
-              </td>
-            </tr>
-
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <script>
-      document.addEventListener('click', function (e) {
-        const btn = e.target.closest('.row-toggle');
-        if (!btn) return;
-        const regionId = btn.getAttribute('aria-controls');
-        const region = document.getElementById(regionId);
-        if (!region) return;
-
-        const expanded = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!expanded));
-        region.hidden = expanded; // hide if it was expanded
-      });
-
-      function setAccordionMode(enabled) {
-        if (!enabled) return;
-        const buttons = Array.from(document.querySelectorAll('.row-toggle'));
-        buttons.forEach(btn => btn.addEventListener('click', () => {
-          const currentId = btn.getAttribute('aria-controls');
-          buttons.forEach(other => {
-            if (other === btn) return;
-            const id = other.getAttribute('aria-controls');
-            const region = document.getElementById(id);
-            other.setAttribute('aria-expanded', 'false');
-            if (region) region.hidden = true;
+            const expanded = btn.getAttribute('aria-expanded') === 'true';
+            btn.setAttribute('aria-expanded', String(!expanded));
+            region.hidden = expanded; // hide if it was expanded
           });
-        }));
-      }
-    </script>
-  </div>
-</body>
 
-</html>
+          function setAccordionMode(enabled) {
+            if (!enabled) return;
+            const buttons = Array.from(document.querySelectorAll('.row-toggle'));
+            buttons.forEach(btn => btn.addEventListener('click', () => {
+              const currentId = btn.getAttribute('aria-controls');
+              buttons.forEach(other => {
+                if (other === btn) return;
+                const id = other.getAttribute('aria-controls');
+                const region = document.getElementById(id);
+                other.setAttribute('aria-expanded', 'false');
+                if (region) region.hidden = true;
+              });
+            }));
+          }
+        </script>
+      </div>
+    </body>
+  </html>
